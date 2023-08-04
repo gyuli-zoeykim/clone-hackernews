@@ -1,0 +1,25 @@
+.vertical {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.horizontal .title {
+  color: white;
+}
+
+.vertical .title {
+  color: #15135f;
+}
+
+.horizontal .title:hover {
+  color: #15135f;
+}
+
+.vertical .title:hover {
+  color: #f60;
+}

@@ -1,0 +1,73 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  background-color: #f60;
+}
+
+h2 {
+  font-family: Coda, cursive;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  padding: 0 28px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.logo img {
+  width: 138px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  height: 32px;
+}
+
+.bslist-icon {
+  color: #fff;
+  font-size: 32px;
+}
+
+.shade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+ul {
+  list-style: none;
+}
+
+.menu-horizontal {
+  display: flex;
+  width: 292px;
+  justify-content: space-between;
+}
+
+.menu-vertical {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  width: 150px;
+  height: 100vh;
+  background-color: #fff;
+  margin: 0;
+  padding: 30px;
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.menu-vertical.open {
+  transform: translateX(0);
+}
