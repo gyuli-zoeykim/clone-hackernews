@@ -6,7 +6,7 @@ const MenuItems = ({ active }) => {
   return (
     <>
       <li className={active}>
-        <Link className="title" to="/">
+        <Link className="title" to="/top">
           Top
         </Link>
       </li>

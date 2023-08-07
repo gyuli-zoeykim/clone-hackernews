@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MenuItems from './MenuItems';
 import './Header.css';
 import { BsList } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,9 @@ const Header = () => {
     <div className="header">
       <div className="header-inner">
         <div className="logo">
-          <h2>Hacker News</h2>
+          <Link className="title" to="/">
+            <h2>Hacker News</h2>
+          </Link>
         </div>
         <div className="menu">
           {windowWidth > 744 ? (
