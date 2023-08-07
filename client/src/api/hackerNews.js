@@ -1,7 +1,7 @@
-export async function fetchTopIds() {
+export async function fetchIdsByCategory(category) {
   try {
     const response = await fetch(
-      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
+      `https://hacker-news.firebaseio.com/v0/${category}stories.json?print=pretty`
     );
     const data = await response.json();
     return data;

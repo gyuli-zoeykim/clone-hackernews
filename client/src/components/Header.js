@@ -29,7 +29,7 @@ const Header = () => {
           <h2>Hacker News</h2>
         </div>
         <div className="menu">
-          {windowWidth > 600 ? (
+          {windowWidth > 744 ? (
             <ul className="menu-horizontal">
               <MenuItems active="horizontal" />
             </ul>

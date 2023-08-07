@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import TopPage from './pages/TopPage';
+import StoryPage from './pages/StoryPage';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -8,7 +8,10 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<TopPage />} />
+        <Route path="/" element={<StoryPage category="top" />} />
+        <Route path="/top" element={<StoryPage category="top" />} />
+        <Route path="/new" element={<StoryPage category="new" />} />
+        <Route path="/best" element={<StoryPage category="best" />} />
       </Routes>
     </>
   );
