@@ -1,30 +1,19 @@
-import { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/Header';
+import StoryPage from './pages/StoryPage';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [serverData, setServerData] = useState('');
-
-  useEffect(() => {
-    async function readServerData() {
-      const resp = await fetch('/api/hello');
-      const data = await resp.json();
-
-      console.log('Data from server:', data);
-
-      setServerData(data.message);
-    }
-
-    readServerData();
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>{serverData}</h1>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<StoryPage category="top" />} />
+        <Route path="/top" element={<StoryPage category="top" />} />
+        <Route path="/new" element={<StoryPage category="new" />} />
+        <Route path="/best" element={<StoryPage category="best" />} />
+      </Routes>
+    </>
   );
 }
 
