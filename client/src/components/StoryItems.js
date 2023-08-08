@@ -7,21 +7,10 @@ import {
   BsFillChatRightDotsFill,
 } from 'react-icons/bs';
 import { AiFillLike } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 import './StoryItems.css';
 import timeDifference from '../utils/timeDifference';
 
-const StoryItems = ({ story, index }) => {
-  const navigate = useNavigate();
-
-  const handleClick = (kids, id) => {
-    try {
-      navigate(`/comments/${id}`, { state: { kids } });
-    } catch (error) {
-      console.error('Error fetching comments:', error);
-    }
-  };
-
+const StoryItems = ({ story, index, currentPage }) => {
   const parsedUrl = story.url && new URL(story.url);
   const hostname = parsedUrl && parsedUrl.hostname.replace('www.', '');
   const relatedUrl = `https://news.ycombinator.com/from?site=${hostname}`;
@@ -31,10 +20,12 @@ const StoryItems = ({ story, index }) => {
     relatedDetailUrl = `https://news.ycombinator.com/from?site=${hostname}/${pathSegments[1]}`;
   }
 
+  const actualIndex = (currentPage - 1) * 30 + index + 1;
+
   return (
-    <li key={index} className="story-list">
+    <li className="story-list">
       <div className="column-one">
-        <span className="rank">{index + 1}</span>
+        <span className="rank">{actualIndex}.</span>
         <BsTriangleFill size={14} />
       </div>
       <div className="column-two">
@@ -44,9 +35,9 @@ const StoryItems = ({ story, index }) => {
           </h4>
         </div>
         <div className="row-two">
-          <div className="row-two-column-one">
-            {hostname ? (
-              hostname === 'twitter.com' || hostname === 'github.com' ? (
+          {hostname && (
+            <div className="row-two-column-one">
+              {hostname === 'twitter.com' || hostname === 'github.com' ? (
                 <div className="inner-column-full">
                   <BsLink45Deg size={20} />
                   <a href={relatedDetailUrl}>{hostname}</a>
@@ -56,9 +47,9 @@ const StoryItems = ({ story, index }) => {
                   <BsLink45Deg size={20} />
                   <a href={relatedUrl}>{hostname}</a>
                 </div>
-              )
-            ) : null}
-          </div>
+              )}
+            </div>
+          )}
           <div className="row-three-column-one">
             <div id="story-score" className="inner-column-half">
               <AiFillLike size={18} />
@@ -74,20 +65,17 @@ const StoryItems = ({ story, index }) => {
               <BsFillClockFill size={18} />
               <span>{timeDifference(story.time)}</span>
             </div>
-            <div
-              id="story-descendants"
-              className="inner-column-half"
-              onClick={() => handleClick(story.kids, story.id)}>
+            <div id="story-descendants" className="inner-column-half">
               {story.descendants >= 0 ? (
                 <>
                   <BsFillChatRightDotsFill size={18} />
-                  <span>
+                  <a href={`https://news.ycombinator.com/item?id=${story.id}`}>
                     {story.descendants === 0
                       ? 'discuss'
                       : `${story.descendants} ${
                           story.descendants === 1 ? 'comment' : 'comments'
                         }`}
-                  </span>
+                  </a>
                 </>
               ) : null}
             </div>

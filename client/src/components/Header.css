@@ -50,7 +50,7 @@ ul {
 
 .menu-horizontal {
   display: flex;
-  width: 292px;
+  width: 400px;
   justify-content: space-between;
 }
 

@@ -18,19 +18,31 @@
 }
 
 .btn-container {
-  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-.more-btn {
+.prev-btn,
+.next-btn {
   width: 110px;
   height: 35px;
-  background-color: #15135f;
-  color: white;
-  border: none;
+  color: #15135f;
+  border: 1px solid #15135f;
   margin: 15px 0 30px;
 }
 
-.more-btn:hover {
+.prev-btn:disabled {
+  color: white;
+  background-color: #888;
+  border: none;
+  cursor: default;
+}
+
+.prev-btn:hover:not(:disabled),
+.next-btn:hover {
   cursor: pointer;
+  border: none;
+  color: white;
   background-color: #f60;
 }

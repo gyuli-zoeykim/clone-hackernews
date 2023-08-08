@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useStories from '../utils/useStories';
 import './StoryPage.css';
 import StoryItems from '../components/StoryItems';
 
 const StoryPage = ({ category }) => {
-  const { stories, setCurrentPage, isLoading, err } = useStories(category);
-
-  console.log(stories);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { stories, isLoading, err } = useStories(category, currentPage);
   const capitalizeCategory =
     category.charAt(0).toUpperCase() + category.slice(1) + ' Stories';
 
-  const handleLoadMore = () => {
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    window.scrollTo(0, 0);
+  };
+
+  const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+    window.scrollTo(0, 0);
   };
 
   if (isLoading) {
@@ -31,13 +36,20 @@ const StoryPage = ({ category }) => {
             key={index}
             story={story}
             index={index}
+            currentPage={currentPage}
             category={category}
           />
         ))}
       </ul>
       <div className="btn-container">
-        <button className="more-btn" onClick={handleLoadMore}>
-          More
+        <button
+          className="prev-btn"
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}>
+          Prev
+        </button>
+        <button className="next-btn" onClick={handleNextPage}>
+          Next
         </button>
       </div>
     </div>
