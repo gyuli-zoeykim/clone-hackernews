@@ -7,8 +7,9 @@ import {
 import timeDifference from '../utils/timeDifference';
 import './NestedComments.css';
 import DOMPurify from 'dompurify';
+import { handleNextPage } from '../utils/handlePrevNext';
 
-const NestedComments = ({ comment }) => {
+const NestedComments = ({ comment, setCurrentPage }) => {
   const createMarkup = () => ({
     __html: DOMPurify.sanitize(comment.comment_text),
   });
@@ -20,24 +21,34 @@ const NestedComments = ({ comment }) => {
       </div>
       <div className="column-two">
         <div className="row-one">
-          <div className="inner-column">
-            <BsFillPersonFill size={18} />
-            <span>{comment.author}</span>
+          <div className="row-one-column-one">
+            <div className="inner-column">
+              <BsFillPersonFill size={18} />
+              <span>{comment.author}</span>
+            </div>
+            <div className="inner-column">
+              <BsFillClockFill size={18} />
+              <span>{timeDifference(comment.created_at_i)}</span>
+            </div>
           </div>
-          <div className="inner-column">
-            <BsFillClockFill size={18} />
-            <span>{timeDifference(comment.created_at_i)}</span>
-          </div>
-          <div className="inner-column">
-            <a
-              href={`https://news.ycombinator.com/item?id=${comment.parent_id}`}>
-              parent
-            </a>
-            <span> | </span>
-            <a
-              href={`https://news.ycombinator.com/item?id=${comment.story_id}#${comment.objectID}`}>
-              context
-            </a>
+          <div className="row-one-column-two">
+            <div className="inner-column">
+              <a
+                href={`https://news.ycombinator.com/item?id=${comment.parent_id}`}>
+                parent
+              </a>
+              <span> | </span>
+              <a
+                href={`https://news.ycombinator.com/item?id=${comment.story_id}#${comment.objectID}`}>
+                context
+              </a>
+              <span> | </span>
+              <span
+                className="comment-next-btn"
+                onClick={() => handleNextPage(setCurrentPage)}>
+                next
+              </span>
+            </div>
           </div>
         </div>
         <div className="row-two">
@@ -46,7 +57,10 @@ const NestedComments = ({ comment }) => {
           </a>
         </div>
         <div className="row-three">
-          <p dangerouslySetInnerHTML={createMarkup()} />
+          <p
+            className="comment-text"
+            dangerouslySetInnerHTML={createMarkup()}
+          />
         </div>
       </div>
     </div>

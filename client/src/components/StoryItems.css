@@ -1,5 +1,5 @@
 @media (width >= 1024px) {
-  .row-one {
+  .story-list .row-one {
     flex-basis: 45%;
   }
 
@@ -31,7 +31,7 @@
 }
 
 @media (width >=745px) and (width <=1023px) {
-  .row-one {
+  .story-list .row-one {
     flex-basis: 50%;
   }
 
@@ -122,11 +122,15 @@ a {
   gap: 5px;
 }
 
+.inner-column-full a,
+.inner-column-half a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .row-one a:hover,
-.inner-column-full:hover,
 .inner-column-full a:hover,
-#story-descendants:hover,
-#story-descendants a:hover {
+.inner-column-half a:hover {
   color: #f60;
-  cursor: pointer;
 }

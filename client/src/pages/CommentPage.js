@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NestedComments from '../components/NestedComments';
 import './CommentPage.css';
+import { useNavigate } from 'react-router-dom';
+import { handlePrevPage, handleNextPage } from '../utils/handlePrevNext';
 
 const CommentPage = () => {
   const [commentsData, setCommentsData] = useState([]);
@@ -8,6 +10,7 @@ const CommentPage = () => {
   const [err, setErr] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 10;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +21,7 @@ const CommentPage = () => {
         );
         const data = await response.json();
         setCommentsData(data.hits);
-        console.log(data.hits);
+        console.log(data.hits[1].comment_text);
       } catch (error) {
         setErr(error);
       } finally {
@@ -27,43 +30,41 @@ const CommentPage = () => {
     };
 
     fetchData();
-  }, [currentPage, commentsPerPage]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  }, [currentPage, commentsPerPage, navigate]);
 
   if (err) {
     return <p>Error fetching data: {err.message}</p>;
   }
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-    window.scrollTo(0, 0);
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-    window.scrollTo(0, 0);
-  };
-
   return (
     <div className="comments-container">
       <h4 className="heading">New Comments</h4>
-      {commentsData.map((comment) => (
-        <NestedComments key={comment.objectID} comment={comment} />
-      ))}
-      <div className="btn-container">
-        <button
-          className="prev-btn"
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}>
-          Prev
-        </button>
-        <button className="next-btn" onClick={handleNextPage}>
-          Next
-        </button>
-      </div>
+      {isLoading ? (
+        <p className="text">Loading...</p>
+      ) : (
+        <>
+          {commentsData.map((comment) => (
+            <NestedComments
+              key={comment.objectID}
+              comment={comment}
+              setCurrentPage={setCurrentPage}
+            />
+          ))}
+          <div className="btn-container">
+            <button
+              className="prev-btn"
+              onClick={() => handlePrevPage(setCurrentPage)}
+              disabled={currentPage === 1}>
+              Prev
+            </button>
+            <button
+              className="next-btn"
+              onClick={() => handleNextPage(setCurrentPage)}>
+              Next
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

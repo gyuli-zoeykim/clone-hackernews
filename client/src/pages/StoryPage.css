@@ -1,8 +1,7 @@
 .story-container {
-  margin: 80px auto 0;
+  margin: 80px 0 auto;
   padding: 0 28px;
   color: #15135f;
-  min-width: 375px;
   max-width: 1200px;
 }
 

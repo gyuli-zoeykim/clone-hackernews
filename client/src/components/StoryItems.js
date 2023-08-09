@@ -11,7 +11,7 @@ import './StoryItems.css';
 import timeDifference from '../utils/timeDifference';
 
 const StoryItems = ({ story, index, currentPage }) => {
-  const parsedUrl = story.url && new URL(story.url);
+  const parsedUrl = story.url ? new URL(story.url) : null;
   const hostname = parsedUrl && parsedUrl.hostname.replace('www.', '');
   const relatedUrl = `https://news.ycombinator.com/from?site=${hostname}`;
   let relatedDetailUrl = '';
@@ -31,25 +31,33 @@ const StoryItems = ({ story, index, currentPage }) => {
       <div className="column-two">
         <div className="row-one">
           <h4>
-            <a href={story.url}>{story.title}</a>
+            <a href={story.url}>
+              <h4>{story.title}</h4>
+            </a>
           </h4>
         </div>
         <div className="row-two">
-          {hostname && (
-            <div className="row-two-column-one">
-              {hostname === 'twitter.com' || hostname === 'github.com' ? (
-                <div className="inner-column-full">
-                  <BsLink45Deg size={20} />
-                  <a href={relatedDetailUrl}>{hostname}</a>
-                </div>
-              ) : (
-                <div className="inner-column-full">
-                  <BsLink45Deg size={20} />
-                  <a href={relatedUrl}>{hostname}</a>
-                </div>
-              )}
-            </div>
-          )}
+          <div className="row-two-column-one">
+            {hostname && (
+              <>
+                {hostname === 'twitter.com' || hostname === 'github.com' ? (
+                  <div className="inner-column-full">
+                    <a href={relatedDetailUrl}>
+                      <BsLink45Deg size={20} />
+                      {hostname}
+                    </a>
+                  </div>
+                ) : (
+                  <div className="inner-column-full">
+                    <a href={relatedUrl}>
+                      <BsLink45Deg size={20} />
+                      {hostname}
+                    </a>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
           <div className="row-three-column-one">
             <div id="story-score" className="inner-column-half">
               <AiFillLike size={18} />
@@ -65,18 +73,16 @@ const StoryItems = ({ story, index, currentPage }) => {
               <BsFillClockFill size={18} />
               <span>{timeDifference(story.time)}</span>
             </div>
-            <div id="story-descendants" className="inner-column-half">
+            <div className="inner-column-half">
               {story.descendants >= 0 ? (
-                <>
+                <a href={`https://news.ycombinator.com/item?id=${story.id}`}>
                   <BsFillChatRightDotsFill size={18} />
-                  <a href={`https://news.ycombinator.com/item?id=${story.id}`}>
-                    {story.descendants === 0
-                      ? 'discuss'
-                      : `${story.descendants} ${
-                          story.descendants === 1 ? 'comment' : 'comments'
-                        }`}
-                  </a>
-                </>
+                  {story.descendants === 0
+                    ? 'discuss'
+                    : `${story.descendants} ${
+                        story.descendants === 1 ? 'comment' : 'comments'
+                      }`}
+                </a>
               ) : null}
             </div>
           </div>

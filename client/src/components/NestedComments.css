@@ -1,3 +1,16 @@
+@media (width >744px) {
+  .comment-list .row-one,
+  .comment-list .row-two {
+    flex-basis: 100%;
+  }
+}
+
+@media (width <=744px) {
+  .comment-list .row-one-column-one {
+    flex-basis: 100%;
+  }
+}
+
 .comment-list {
   display: flex;
   gap: 10px;
@@ -14,12 +27,13 @@
 
 .comment-list .row-one {
   display: flex;
-  flex-basis: 360px;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
-.comment-list .row-two {
-  flex-basis: 100%;
+.comment-list .row-one-column-one {
+  display: flex;
+  gap: 15px;
 }
 
 .comment-list .row-two a {
@@ -46,4 +60,17 @@
 
 .comment-list p {
   margin: 0;
+}
+
+.comment-next-btn {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  font-size: 14px;
+  color: #15135f;
+}
+
+.comment-next-btn:hover {
+  color: #f60;
+  cursor: pointer;
 }

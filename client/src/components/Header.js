@@ -27,9 +27,11 @@ const Header = () => {
     <div className="header">
       <div className="header-inner">
         <div className="logo">
-          <Link className="title" to="/">
-            <h2>Hacker News</h2>
-          </Link>
+          <h2>
+            <Link className="title" to="/">
+              Hacker News
+            </Link>
+          </h2>
         </div>
         <div className="menu">
           {windowWidth > 744 ? (
