@@ -10,25 +10,19 @@ const StoryPage = ({ category }) => {
   const capitalizeCategory =
     category.charAt(0).toUpperCase() + category.slice(1) + ' Stories';
 
-  // const handlePrevPage = () => {
-  //   setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  //   window.scrollTo(0, 0);
-  // };
-
-  // const handleNextPage = () => {
-  //   setCurrentPage((prevPage) => prevPage + 1);
-  //   window.scrollTo(0, 0);
-  // };
-
   if (err) {
     return <p>Error fetching data: {err.message}</p>;
   }
+
+  const listItems = Array.from({ length: 30 }, (_, index) => (
+    <li key={index} className="skeleton story-list"></li>
+  ));
 
   return (
     <div className="story-container">
       <h4 className="heading">{capitalizeCategory}</h4>
       {isLoading ? (
-        <p className="text">Loading...</p>
+        <ul className="story-list-group">{listItems}</ul>
       ) : (
         <>
           <ul className="story-list-group">

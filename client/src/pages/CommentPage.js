@@ -36,11 +36,15 @@ const CommentPage = () => {
     return <p>Error fetching data: {err.message}</p>;
   }
 
+  const listItems = Array.from({ length: 10 }, (_, index) => (
+    <li key={index} className="skeleton comment-list"></li>
+  ));
+
   return (
     <div className="comments-container">
       <h4 className="heading">New Comments</h4>
       {isLoading ? (
-        <p className="text">Loading...</p>
+        <ul className="story-list-group">{listItems}</ul>
       ) : (
         <>
           {commentsData.map((comment) => (
