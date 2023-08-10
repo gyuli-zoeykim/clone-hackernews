@@ -35,6 +35,11 @@ const MenuItems = ({ active }) => {
           Jobs
         </Link>
       </li>
+      <li className={active}>
+        <Link className="title" to="/comments">
+          Comments
+        </Link>
+      </li>
     </>
   );
 };

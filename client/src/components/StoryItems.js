@@ -7,22 +7,11 @@ import {
   BsFillChatRightDotsFill,
 } from 'react-icons/bs';
 import { AiFillLike } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 import './StoryItems.css';
 import timeDifference from '../utils/timeDifference';
 
-const StoryItems = ({ story, index }) => {
-  const navigate = useNavigate();
-
-  const handleClick = (kids, id) => {
-    try {
-      navigate(`/comments/${id}`, { state: { kids } });
-    } catch (error) {
-      console.error('Error fetching comments:', error);
-    }
-  };
-
-  const parsedUrl = story.url && new URL(story.url);
+const StoryItems = ({ story, index, currentPage }) => {
+  const parsedUrl = story.url ? new URL(story.url) : null;
   const hostname = parsedUrl && parsedUrl.hostname.replace('www.', '');
   const relatedUrl = `https://news.ycombinator.com/from?site=${hostname}`;
   let relatedDetailUrl = '';
@@ -31,33 +20,43 @@ const StoryItems = ({ story, index }) => {
     relatedDetailUrl = `https://news.ycombinator.com/from?site=${hostname}/${pathSegments[1]}`;
   }
 
+  const actualIndex = (currentPage - 1) * 30 + index + 1;
+
   return (
-    <li key={index} className="story-list">
+    <li className="story-list">
       <div className="column-one">
-        <span className="rank">{index + 1}</span>
+        <span className="rank">{actualIndex}.</span>
         <BsTriangleFill size={14} />
       </div>
       <div className="column-two">
         <div className="row-one">
           <h4>
-            <a href={story.url}>{story.title}</a>
+            <a href={story.url}>
+              <h4>{story.title}</h4>
+            </a>
           </h4>
         </div>
         <div className="row-two">
           <div className="row-two-column-one">
-            {hostname ? (
-              hostname === 'twitter.com' || hostname === 'github.com' ? (
-                <div className="inner-column-full">
-                  <BsLink45Deg size={20} />
-                  <a href={relatedDetailUrl}>{hostname}</a>
-                </div>
-              ) : (
-                <div className="inner-column-full">
-                  <BsLink45Deg size={20} />
-                  <a href={relatedUrl}>{hostname}</a>
-                </div>
-              )
-            ) : null}
+            {hostname && (
+              <>
+                {hostname === 'twitter.com' || hostname === 'github.com' ? (
+                  <div className="inner-column-full">
+                    <a href={relatedDetailUrl}>
+                      <BsLink45Deg size={20} />
+                      {hostname}
+                    </a>
+                  </div>
+                ) : (
+                  <div className="inner-column-full">
+                    <a href={relatedUrl}>
+                      <BsLink45Deg size={20} />
+                      {hostname}
+                    </a>
+                  </div>
+                )}
+              </>
+            )}
           </div>
           <div className="row-three-column-one">
             <div id="story-score" className="inner-column-half">
@@ -74,21 +73,16 @@ const StoryItems = ({ story, index }) => {
               <BsFillClockFill size={18} />
               <span>{timeDifference(story.time)}</span>
             </div>
-            <div
-              id="story-descendants"
-              className="inner-column-half"
-              onClick={() => handleClick(story.kids, story.id)}>
+            <div className="inner-column-half">
               {story.descendants >= 0 ? (
-                <>
+                <a href={`https://news.ycombinator.com/item?id=${story.id}`}>
                   <BsFillChatRightDotsFill size={18} />
-                  <span>
-                    {story.descendants === 0
-                      ? 'discuss'
-                      : `${story.descendants} ${
-                          story.descendants === 1 ? 'comment' : 'comments'
-                        }`}
-                  </span>
-                </>
+                  {story.descendants === 0
+                    ? 'discuss'
+                    : `${story.descendants} ${
+                        story.descendants === 1 ? 'comment' : 'comments'
+                      }`}
+                </a>
               ) : null}
             </div>
           </div>

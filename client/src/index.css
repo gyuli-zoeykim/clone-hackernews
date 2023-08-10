@@ -1,3 +1,30 @@
+@media (width >=1024px) {
+  .skeleton.story-list {
+    height: 40px;
+  }
+}
+
+@media (width >=745px) and (width <=1023px) {
+  .skeleton.story-list {
+    height: 75px;
+  }
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 125px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgba(191, 191, 191, 0.1);
+  }
+
+  100% {
+    background-color: rgba(191, 191, 191, 0.5);
+  }
+}
+
 body {
   background-color: #eee;
   margin: 0;

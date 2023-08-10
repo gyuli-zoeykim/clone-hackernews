@@ -1,0 +1,76 @@
+@media (width >744px) {
+  .comment-list .row-one,
+  .comment-list .row-two {
+    flex-basis: 100%;
+  }
+}
+
+@media (width <=744px) {
+  .comment-list .row-one-column-one {
+    flex-basis: 100%;
+  }
+}
+
+.comment-list {
+  display: flex;
+  gap: 10px;
+  background-color: white;
+  margin: 15px 0;
+  padding: 10px;
+}
+
+.comment-list .column-two {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment-list .row-one {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.comment-list .row-one-column-one {
+  display: flex;
+  gap: 15px;
+}
+
+.comment-list .row-two a {
+  width: fit-content;
+}
+
+.comment-list .row-one,
+.comment-list .row-two {
+  font-size: 14px;
+}
+
+.comment-list .row-three {
+  font-size: 16px;
+}
+
+.inner-column {
+  display: flex;
+  gap: 5px;
+}
+
+.comment-list .row-two a:hover {
+  color: #f60;
+}
+
+.comment-list p {
+  margin: 0;
+}
+
+.comment-next-btn {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  font-size: 14px;
+  color: #15135f;
+}
+
+.comment-next-btn:hover {
+  color: #f60;
+  cursor: pointer;
+}

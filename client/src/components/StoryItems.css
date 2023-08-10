@@ -1,16 +1,16 @@
 @media (width >= 1024px) {
-  .row-one {
-    flex-basis: 45%;
+  .story-list .row-one {
+    flex-basis: 40%;
   }
 
   .row-two {
-    flex-basis: 55%;
+    flex-basis: 60%;
     flex-direction: row;
   }
 
   .row-two-column-one,
   .row-three-column-one {
-    flex: 0.7;
+    flex: 0.8;
   }
 
   .row-four-column-one {
@@ -31,7 +31,7 @@
 }
 
 @media (width >=745px) and (width <=1023px) {
-  .row-one {
+  .story-list .row-one {
     flex-basis: 50%;
   }
 
@@ -46,7 +46,7 @@
 }
 
 @media (width <= 744px) {
-  .column-two {
+  .story-list .column-two {
     flex-wrap: wrap;
   }
 
@@ -73,7 +73,7 @@
   gap: 10px;
 }
 
-.column-one {
+.story-list .column-one {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,10 +122,15 @@ a {
   gap: 5px;
 }
 
+.inner-column-full a,
+.inner-column-half a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .row-one a:hover,
-.inner-column-full:hover,
 .inner-column-full a:hover,
-#story-descendants:hover {
+.inner-column-half a:hover {
   color: #f60;
-  cursor: pointer;
 }

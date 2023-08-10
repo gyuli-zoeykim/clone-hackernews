@@ -6,8 +6,9 @@
   background-color: #f60;
 }
 
-h2 {
+h2 .title {
   font-family: Coda, cursive;
+  font-weight: bold;
 }
 
 .header-inner {
@@ -50,7 +51,7 @@ ul {
 
 .menu-horizontal {
   display: flex;
-  width: 292px;
+  width: 400px;
   justify-content: space-between;
 }
 
