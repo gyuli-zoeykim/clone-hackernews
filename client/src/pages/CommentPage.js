@@ -21,7 +21,6 @@ const CommentPage = () => {
         );
         const data = await response.json();
         setCommentsData(data.hits);
-        console.log(data.hits[1].comment_text);
       } catch (error) {
         setErr(error);
       } finally {

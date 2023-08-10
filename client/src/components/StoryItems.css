@@ -1,16 +1,16 @@
 @media (width >= 1024px) {
   .story-list .row-one {
-    flex-basis: 45%;
+    flex-basis: 40%;
   }
 
   .row-two {
-    flex-basis: 55%;
+    flex-basis: 60%;
     flex-direction: row;
   }
 
   .row-two-column-one,
   .row-three-column-one {
-    flex: 0.7;
+    flex: 0.8;
   }
 
   .row-four-column-one {
