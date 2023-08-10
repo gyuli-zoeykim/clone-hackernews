@@ -11,7 +11,7 @@ const StoryPage = ({ category }) => {
     category.charAt(0).toUpperCase() + category.slice(1) + ' Stories';
 
   if (err) {
-    return <p>Error fetching data: {err.message}</p>;
+    return <p>Error fetching stories: {err.message}</p>;
   }
 
   const listItems = Array.from({ length: 30 }, (_, index) => (

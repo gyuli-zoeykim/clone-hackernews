@@ -32,7 +32,7 @@ const CommentPage = () => {
   }, [currentPage, commentsPerPage, navigate]);
 
   if (err) {
-    return <p>Error fetching data: {err.message}</p>;
+    return <p>Error fetching comments: {err.message}</p>;
   }
 
   const listItems = Array.from({ length: 10 }, (_, index) => (
