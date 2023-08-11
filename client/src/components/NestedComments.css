@@ -74,3 +74,8 @@
   color: #f60;
   cursor: pointer;
 }
+
+.comment-text {
+  display: block;
+  word-break: break-word;
+}

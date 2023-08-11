@@ -115,6 +115,7 @@
 a {
   text-decoration: none;
   color: #15135f;
+  word-break: break-word;
 }
 
 .inner-column-full,
