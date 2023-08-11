@@ -6,14 +6,10 @@ import {
 } from 'react-icons/bs';
 import timeDifference from '../utils/timeDifference';
 import './NestedComments.css';
-import DOMPurify from 'dompurify';
 import { handleNextPage } from '../utils/handlePrevNext';
+import parse from 'html-react-parser';
 
 const NestedComments = ({ comment, setCurrentPage }) => {
-  const createMarkup = () => ({
-    __html: DOMPurify.sanitize(comment.comment_text),
-  });
-
   return (
     <div className="comment-list">
       <div className="column-one">
@@ -57,10 +53,7 @@ const NestedComments = ({ comment, setCurrentPage }) => {
           </a>
         </div>
         <div className="row-three">
-          <p
-            className="comment-text"
-            dangerouslySetInnerHTML={createMarkup()}
-          />
+          <div className="comment-text">{parse(comment.comment_text)}</div>
         </div>
       </div>
     </div>
