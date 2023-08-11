@@ -13,10 +13,10 @@
 
 .comment-list {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   background-color: white;
   margin: 15px 0;
-  padding: 10px;
+  padding: 12px;
 }
 
 .comment-list .column-two {

@@ -1,5 +1,8 @@
 ## Project:2 - Building a Hacker News Clone with React
 
+Projects:
+clone-hackernews| [Figma](https://www.figma.com/file/XARrsdqScnFAbIy6mqT3gf/Gyuli-Kim---clone-HackerNews?type=design&node-id=10672-3&mode=design&t=n0hevOL8O03GnXu5-0) | [Live](https://gyulizoeykimwork.com/)
+
 In this project, I built a clone of Hacker News website using React framework. My goal was to replicate the main layout and functionalities of Hacker News, while adding css styling to enhance user interactions.
 
 ---
