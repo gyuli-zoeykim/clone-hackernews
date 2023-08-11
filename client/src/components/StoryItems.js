@@ -31,9 +31,7 @@ const StoryItems = ({ story, index, currentPage }) => {
       <div className="column-two">
         <div className="row-one">
           <h4>
-            <a href={story.url}>
-              <h4>{story.title}</h4>
-            </a>
+            <a href={story.url}>{story.title}</a>
           </h4>
         </div>
         <div className="row-two">
