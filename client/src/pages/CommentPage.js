@@ -17,7 +17,7 @@ const CommentPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `http://hn.algolia.com/api/v1/search_by_date?tags=comment&numericFilters=created_at_i>0&page=${currentPage}&hitsPerPage=${commentsPerPage}`
+          `https://hn.algolia.com/api/v1/search_by_date?tags=comment&numericFilters=created_at_i>0&page=${currentPage}&hitsPerPage=${commentsPerPage}`
         );
         const data = await response.json();
         setCommentsData(data.hits);
