@@ -4,6 +4,17 @@ clone-hackernews | [Figma](https://www.figma.com/file/XARrsdqScnFAbIy6mqT3gf/Gyu
 
 In this project, I built a clone of Hacker News website using React framework. My goal was to replicate the main layout and functionalities of Hacker News, while adding css styling to enhance user interactions.
 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
+
+---
+
+![clone-hackernews](https://github.com/gyuli-zoeykim/clone-hackernews/assets/111097580/d70e378d-15aa-4774-b763-5983f77d2b20)
+
 ---
 
 ### Key Features:
@@ -17,7 +28,7 @@ In this project, I built a clone of Hacker News website using React framework. M
 
 ---
 
-### Skills
+### Skills:
 
 1. React Router
    1. Utilized React Router to implement navigation for user to navigate between categories.
