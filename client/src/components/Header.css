@@ -72,3 +72,10 @@ ul {
 .menu-vertical.open {
   transform: translateX(0);
 }
+
+.logo-y {
+  border: 2px solid #fff;
+  padding: 1px 10px;
+  color: #fff;
+  margin-right: 3px;
+}
