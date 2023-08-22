@@ -29,7 +29,7 @@ const Header = () => {
         <div className="logo">
           <h2>
             <Link className="title" to="/">
-              Hacker News
+              <span className="logo-y">Y</span> Hacker News
             </Link>
           </h2>
         </div>
