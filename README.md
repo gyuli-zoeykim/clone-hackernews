@@ -2,7 +2,7 @@
 
 clone-hackernews | [Figma](https://www.figma.com/file/XARrsdqScnFAbIy6mqT3gf/Gyuli-Kim---clone-HackerNews?type=design&node-id=10672-3&mode=design&t=n0hevOL8O03GnXu5-0) | [Live](https://gyulizoeykimwork.com/)
 
-In this project, I built a clone of Hacker News website using React framework. My goal was to replicate the main layout and functionalities of Hacker News, while adding css styling to enhance user interactions.
+In this project, I built a clone of Hacker News website. My goal was to replicate the main layout and functionalities of Hacker News, while adding css styling to enhance user interactions.
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
