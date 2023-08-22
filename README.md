@@ -13,7 +13,8 @@ In this project, I built a clone of Hacker News website using React framework. M
 
 ---
 
-![clone-hackernews](https://github.com/gyuli-zoeykim/clone-hackernews/assets/111097580/d70e378d-15aa-4774-b763-5983f77d2b20)
+![clone-hackernews](https://github.com/gyuli-zoeykim/clone-hackernews/assets/111097580/94afa604-822a-4c75-b16b-8bce08881705)
+
 
 ---
 
