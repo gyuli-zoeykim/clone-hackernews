@@ -28,16 +28,3 @@ In this project, I built a clone of Hacker News website. My goal was to replicat
    1. Comments page is dynamically updated to reflect the lastest comments. User can view comments and navigate to actual Hacker News website to engage with the latest comments and discussions.
 
 ---
-
-### Skills:
-
-1. React Router
-   1. Utilized React Router to implement navigation for user to navigate between categories.
-1. Hooks
-   1. Used useState and useEffect hook to manage various states, such as the current page, story data, loading status, and errors.
-1. API Integration
-   1. Used fetch to retrieve comments and story IDs by category. And fetch story details based on story IDs.
-1. Styling with CSS
-   1. Applied flexbox and animation for skeleton to create responsive web.
-
----
