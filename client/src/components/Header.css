@@ -25,14 +25,11 @@ h2 .title {
   width: 138px;
 }
 
-.menu-icon {
-  cursor: pointer;
-  height: 32px;
-}
-
 .bslist-icon {
   color: #fff;
   font-size: 32px;
+  cursor: pointer;
+  display: none;
 }
 
 .shade {
@@ -78,4 +75,14 @@ ul {
   padding: 1px 10px;
   color: #fff;
   margin-right: 3px;
+}
+
+@media (width <=768px) {
+  .menu-horizontal {
+    display: none;
+  }
+
+  .bslist-icon {
+    display: block;
+  }
 }
